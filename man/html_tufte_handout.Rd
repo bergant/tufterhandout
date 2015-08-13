@@ -6,7 +6,7 @@
 \usage{
 html_tufte_handout(self_contained = TRUE, theme = "default",
   lib_dir = NULL, keep_md = FALSE, mathjax = "default",
-  pandoc_args = NULL, ...)
+  pandoc_args = NULL, css = NULL, ...)
 }
 \arguments{
 \item{self_contained}{Include all dependencies}
@@ -20,6 +20,8 @@ html_tufte_handout(self_contained = TRUE, theme = "default",
 \item{mathjax}{Include mathjax, "local" or "default"}
 
 \item{pandoc_args}{Other arguments to pass to pandoc}
+
+\item{css}{Custom css. If not defined, tufterhandout.css is used}
 
 \item{...}{Additional function arguments to pass to the base R Markdown HTML
 output formatter}

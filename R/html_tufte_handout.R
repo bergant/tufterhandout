@@ -16,6 +16,7 @@ NULL
 #' @param lib_dir Local directory to copy assets
 #' @param keep_md Keep knitr-generated markdown
 #' @param mathjax Include mathjax, "local" or "default"
+#' @param css Custom css. If not defined, tufterhandout.css is used
 #' @param pandoc_args Other arguments to pass to pandoc
 #' @param ... Additional function arguments to pass to the base R Markdown HTML
 #'   output formatter
@@ -27,10 +28,16 @@ html_tufte_handout <- function(self_contained = TRUE,
                                lib_dir = NULL,
                                keep_md = FALSE,
                                mathjax = "default",
-                               pandoc_args = NULL, ...) {
+                               pandoc_args = NULL,
+                               css = NULL, ...) {
 
-
- tufte_css <- system.file("tufterhandout.css", package = "tufterhandout")
+ # if custom css file is provided
+ if(!is.null(css) && css != "") {
+   tufte_css <- css
+ } else
+ {
+   tufte_css <- system.file("tufterhandout.css", package = "tufterhandout")
+ }
 
  if(identical(.Platform$OS.type, "windows")){
 
